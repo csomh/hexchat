@@ -41,7 +41,7 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 This package contains the development files for %{name}.
 
 %prep
-%autosetup -p1 -n hexchat-v2.14.2
+%autosetup -p1
 
 %build
 %meson -Dwith-lua=lua
