@@ -1,7 +1,7 @@
 specfile_path: hexchat.spec
 actions:
-  get-current-version:
-    - 'bash -c "pwd; ls -la; cat .git/HEAD; cat .git/refs/heads/fedora; sed -nE ''s/^Version: +(.+)$/\1/p'' hexchat.spec"'
+  get-current-version: "make test"
+# current_version_command: ["make", "test"]
 jobs:
   - job: copr_build
     trigger: commit
@@ -11,3 +11,8 @@ jobs:
         - fedora-all
       owner: csomh
       project: hexchat
+  - job: copr_build
+    trigger: pull_request
+    metadata:
+      targets:
+      - fedora-stable
