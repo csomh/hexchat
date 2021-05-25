@@ -1,0 +1,13 @@
+specfile_path: hexchat.spec
+actions:
+  get-current-version:
+    - 'echo 2.14.4'
+jobs:
+  - job: copr_build
+    trigger: commit
+    metadata:
+      branch: fedora
+      targets:
+        - fedora-all
+      owner: csomh
+      project: hexchat
